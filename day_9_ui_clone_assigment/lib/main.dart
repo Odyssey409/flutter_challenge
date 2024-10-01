@@ -1,5 +1,4 @@
-import 'package:day_9_ui_clone_assigment/widgets/button.dart';
-import 'package:day_9_ui_clone_assigment/widgets/currency_card.dart';
+import 'package:day_9_ui_clone_assigment/widgets/time_table.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,122 +16,110 @@ class App extends StatelessWidget {
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 40,
+              horizontal: 20,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 40,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        const Text(
-                          'Hey, Odyssey',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 28,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Text(
-                          'Welcome back',
-                          style: TextStyle(
-                            color: Colors.white.withOpacity(0.8),
-                            fontSize: 18,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                Text(
-                  'Total Balance',
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
-                    fontSize: 22,
-                  ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const Text(
-                  '\$5 194 482',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 42,
-                      fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Button(
-                      text: 'Transfer',
-                      bgcolor: Color(0XFFF1B33B),
-                      textColor: Colors.black,
-                    ),
-                    Button(
-                      text: 'Request',
-                      bgcolor: Color(0XFF1F2123),
-                      textColor: Colors.white,
-                    ),
-                  ],
-                ),
-                const SizedBox(
                   height: 60,
                 ),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('Wallets',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 32,
-                          fontWeight: FontWeight.w600,
-                        )),
-                    Text(
-                      "View all",
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
-                        fontSize: 16,
+                    ClipOval(
+                      child: Image.asset(
+                        'assets/profile_img.jpg', // 프로필 이미지 URL
+                        width: 50,
+                        height: 50,
+                        fit: BoxFit.cover,
                       ),
-                    )
+                    ),
+                    const Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 40,
+                    ),
                   ],
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const CurrencyCard(
-                  name: "Euro",
-                  amount: "6 428",
-                  code: "EUR",
-                  icon: Icons.euro,
-                  order: 1,
+                const Text(
+                  'Monday 16',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                  ),
                 ),
-                const CurrencyCard(
-                  name: "Bitcoin",
-                  amount: "9 785",
-                  code: "BTC",
-                  icon: Icons.currency_bitcoin,
-                  order: 2,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'TODAY',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 42,
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('•',
+                            style: TextStyle(
+                              color: Colors.purple,
+                              fontSize: 42,
+                            )),
+                      ),
+                      Text(
+                        '17  18  19  20',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.5),
+                          fontSize: 36,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                const CurrencyCard(
-                  name: "Dollar",
-                  amount: "962",
-                  code: "USD",
-                  icon: Icons.attach_money,
-                  order: 3,
+                const SizedBox(
+                  height: 10,
+                ),
+                const TimeTable(
+                  name_top: "DESIGN",
+                  name_bottom: "MEETING",
+                  startHour: "11",
+                  startMin: "30",
+                  endHour: "12",
+                  endMin: "20",
+                  participants: ["ALEX", "HELENA", "NANA"],
+                  color: Color.fromARGB(255, 255, 249, 71),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const TimeTable(
+                  name_top: "DAILY",
+                  name_bottom: "PROJECT",
+                  startHour: "12",
+                  startMin: "35",
+                  endHour: "14",
+                  endMin: "10",
+                  participants: ["ME", "RICHARD", "CIRY", "+4"],
+                  color: Color.fromARGB(207, 162, 85, 250),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const TimeTable(
+                  name_top: "WEEKLY",
+                  name_bottom: "PLANNING",
+                  startHour: "15",
+                  startMin: "00",
+                  endHour: "16",
+                  endMin: "30",
+                  participants: ["DEN", "NANA", "MARK"],
+                  color: Color.fromARGB(255, 204, 250, 77),
                 ),
               ],
             ),
